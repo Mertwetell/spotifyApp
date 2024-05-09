@@ -3,12 +3,16 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FavoritesPageComponent } from './modules/favorites/pages/favorites-page/favorites-page.component';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [//TODO: Declaraciones, componentes, directivas, pipes
+    AppComponent, FavoritesPageComponent
+
   ],
-  imports: [
+  imports: [//TODO: Declaraciones, componentes, directivas, pipes
     BrowserModule,
     AppRoutingModule
   ],
