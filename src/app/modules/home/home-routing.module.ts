@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-   {
+   /*{
       path:'', 
      loadChildren:()=> import( '@modules/tracks/tracks.module').then(m=>m.TracksModule)
-    },
+    },*/
     {
       path:'tracks', 
      loadChildren:()=> import( '@modules/tracks/tracks.module').then(m=>m.TracksModule)
@@ -18,6 +18,11 @@ const routes: Routes = [
     {
       path:'history', 
      loadChildren:()=> import( '@modules/history/history.module').then(m=>m.HistoryModule)
+    },
+    {
+      path:'**',
+      redirectTo:'/tracks'
+
     }
   ];
 
