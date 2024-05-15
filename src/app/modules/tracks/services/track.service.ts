@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';//
 import {catchError, map,mergeMap, tap}from 'rxjs/operators'
 import { TrackModel } from '@core/models/tracks.model';//
-import { HttpClient } from '@angular/common/http';//
+import { HttpClient, HttpHeaders } from '@angular/common/http';//
 import { enviroment } from 'src/environments/environment';//
 //import * as dataRaw from '../../../data/tracks.json'
 
@@ -48,7 +48,9 @@ constructor(private httClient:HttpClient) {   }
   }
 
   getAllRandom$():Observable<any> {
-    return this.httClient.get(`${this.url}/tracks`)
+    return this.httClient.get(`${this.url}/tracks`, {headers: new HttpHeaders({
+      authorization:"Bearer TOKEN"
+    })})
     .pipe(
       mergeMap(({data}:any)=>this.skipById(data,1)), 
       tap(data=>console.log(data)),
